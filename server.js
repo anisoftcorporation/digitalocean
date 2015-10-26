@@ -6,4 +6,4 @@ http.createServer(function (req, res) {
 	res.write('More Interesting Stuffs to Appear');
     res.end();
 }).listen(80,'0.0.0.0');
-console.log('Server running at http://104.236.240.241:80/'); n
+console.log('Server running at http://104.236.240.241:80/'); 
