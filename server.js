@@ -1,18 +1,20 @@
-var express = require('express');
-var app = express();
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
-app.get('/', function (req, res) {
-  res.send('Hello World!');
+app.get('/', function(req, res){
+	console.log("Here");
+  res.send('Welcome');
+  console.log(__dirname);
 });
-app.get('/chat', function (req, res) {
-  res.send('Chat!');
+app.get('/chat', function(req, res){
+  res.sendFile(__dirname+'/'+'chat.html');
 });
-app.get('/login', function (req, res) {
-  res.send('Login!');
+io.on('connection', function(socket){
+//socket.emit("welcome",{'data':'hello'});
+console.log('a user connected');
 });
-var server = app.listen(80, function () {
-  var host = server.address().address;
-  var port = server.address().port;
 
-  console.log('Example app listening at http://%s:%s', host, port);
+http.listen(80, function(){
+  console.log('listening on *:80');
 });

@@ -1,0 +1,17 @@
+<html>
+<head>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+  socket.on("welcome",function(msg){
+  
+  alert(msg.data);
+  
+  });
+
+</script>
+</head>
+<body>
+<input type"submit">
+</body>
+</html>
